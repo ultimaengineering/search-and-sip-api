@@ -1,8 +1,6 @@
-FROM adoptopenjdk/openjdk11:jre-11.0.8_10-alpine
+FROM adoptopenjdk:11-jre-hotspot-bionic
 MAINTAINER Alexander Montgomery
-RUN apk update && \
-    apk upgrade && \
-    apk add unzip
+RUN apt update && apt upgrade -y && apt install unzip -y
 RUN ls /workspace
 COPY app.zip /app/app.zip
 RUN unzip /app/app.zip && rm /app/app.zip
