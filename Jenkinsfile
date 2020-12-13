@@ -28,7 +28,8 @@ spec:
       name: sharedvolume
   volumes:
     - name: sharedvolume
-      emptyDir: {}
+      persistentVolumeClaim:
+        claimName: sharedvolume
 """
 ) {
    node(POD_LABEL) {
@@ -46,7 +47,7 @@ spec:
       PATH = "/busybox:/kaniko:$PATH"
      }
       container(name: 'kaniko', shell: '/busybox/sh') {
-       sh 'cp /workspace/opt/app/shared/* /workspace/'
+       sh 'cp -r /workspace/opt/app/shared/* /workspace/'
        sh 'pwd'
        sh 'ulimit -n 10000'
        sh '/kaniko/executor -f Dockerfile --destination=docker.ultimaengineering.io/search-and-sip-api:latest'
