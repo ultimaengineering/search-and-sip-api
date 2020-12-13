@@ -47,7 +47,6 @@ spec:
       PATH = "/busybox:/kaniko:$PATH"
      }
       container(name: 'kaniko', shell: '/busybox/sh') {
-      sh 'ls /workspace/opt/app/shared/*'
        sh 'cp -r /workspace/opt/app/shared/* /workspace/'
        sh 'pwd'
        sh 'ulimit -n 10000'
