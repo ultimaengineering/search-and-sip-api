@@ -28,7 +28,8 @@ spec:
       name: sharedvolume
   volumes:
     - name: sharedvolume
-      emptyDir: {}
+      persistentVolumeClaim:
+        claimName: sharedvolume
 """
 ) {
    node(POD_LABEL) {
