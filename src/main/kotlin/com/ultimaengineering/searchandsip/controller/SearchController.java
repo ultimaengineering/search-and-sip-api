@@ -26,7 +26,7 @@ public class SearchController {
     }
 
     @GetMapping(params = { "page", "size" })
-    public Pageable<SearchResultsDTO> getSearch(@RequestParam(value = "page", defaultValue = "0") int page,
+    public Page<SearchResultsDTO> getSearch(@RequestParam(value = "page", defaultValue = "0") int page,
                                                @RequestParam(value = "size", defaultValue = "25") int size, UriComponentsBuilder uriBuilder,
                                                HttpServletResponse response) {
         Page<SearchResultsDTO> resultPage = searchService.findPaginated(size, page, Sort.unsorted());
@@ -34,7 +34,7 @@ public class SearchController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No results found for that search query");
         }
 
-        return resultPage.getContent();
+        return null;
     }
 
 }

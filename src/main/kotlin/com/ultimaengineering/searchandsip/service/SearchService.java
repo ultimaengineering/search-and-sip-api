@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class SearchService {
     public Page<SearchResultsDTO> findPaginated(Integer size, Integer page, Sort sort) {
         Pageable pageRequest = createPageRequest(size, page, sort);
-
+        return null;
     }
 
     private Pageable createPageRequest(Integer size, Integer page, Sort sort) {
