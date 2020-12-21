@@ -50,7 +50,7 @@ spec:
        sh 'cp -r /workspace/opt/app/shared/* /workspace/'
        sh 'pwd'
        sh 'ulimit -n 10000'
-       sh '/kaniko/executor -f Dockerfile --destination=docker.ultimaengineering.io/search-and-sip-api:${BRANCH_NAME}-${BUILD_NUMBER}''
+       sh '/kaniko/executor -f Dockerfile --destination=docker.ultimaengineering.io/search-and-sip-api:${BRANCH_NAME}-${BUILD_NUMBER}'
       }
      }
    }
