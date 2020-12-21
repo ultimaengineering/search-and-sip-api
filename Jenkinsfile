@@ -16,7 +16,7 @@ spec:
       name: sharedvolume
   - name: kaniko
     workingDir: /tmp/jenkins
-    image: gcr.io/kaniko-project/executor:debug-v0.14.0
+    image: gcr.io/kaniko-project/executor:debug
     imagePullPolicy: Always
     capabilities:
       add: ["IPC_LOCK"]
@@ -27,9 +27,9 @@ spec:
     - mountPath: '/workspace/opt/app/shared/'
       name: sharedvolume
   volumes:
-    - name: sharedvolume
-      persistentVolumeClaim:
-        claimName: sharedvolume
+      - name: sharedvolume
+        emptyDir:
+          medium: "Memory"
 """
 ) {
    node(POD_LABEL) {
@@ -50,7 +50,7 @@ spec:
        sh 'cp -r /workspace/opt/app/shared/* /workspace/'
        sh 'pwd'
        sh 'ulimit -n 10000'
-       sh '/kaniko/executor -f Dockerfile --destination=docker.ultimaengineering.io/search-and-sip-api:latest'
+       sh '/kaniko/executor -f Dockerfile --destination=docker.ultimaengineering.io/search-and-sip-api:${BRANCH_NAME}-${BUILD_NUMBER}''
       }
      }
    }
