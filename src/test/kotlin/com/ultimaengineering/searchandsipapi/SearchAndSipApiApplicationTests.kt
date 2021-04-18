@@ -1,4 +1,4 @@
-package com.ultimaengineering.searchandsip
+package com.ultimaengineering.searchandsipapi
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

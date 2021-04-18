@@ -1,4 +1,4 @@
-package com.ultimaengineering.searchandsip
+package com.ultimaengineering.searchandsipapi
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
