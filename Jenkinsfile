@@ -38,7 +38,7 @@ spec:
      container('application-container') {
       sh 'chmod 777 gradlew'
       sh './gradlew clean build'
-      sh 'cp build/distributions/search-and-sip-boot-*-SNAPSHOT.zip /workspace/opt/app/shared/app.zip'
+      sh 'cp build/libs/*.jar /workspace/opt/app/shared/app.jar'
       sh 'cp Dockerfile /workspace/opt/app/shared/'
      }
     }
