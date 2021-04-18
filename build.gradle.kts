@@ -12,6 +12,7 @@ version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
+	maven(url = "https://nexus.ultimaengineering.io/repository/maven-public/")
 	mavenCentral()
 }
 
