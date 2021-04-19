@@ -1,1 +1,1 @@
-rootProject.name = "search-and-sip-api"
+﻿rootProject.name = "search-and-sip-api"
